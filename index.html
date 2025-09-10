@@ -78,6 +78,15 @@
             color: #60a5fa;
             /* Tailwind's blue-400 */
         }
+        /* CSS cho slider ảnh */
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider-images img {
+            flex-shrink: 0;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -123,7 +132,7 @@
                     </div>
                     <div class="md:col-span-8 text-center md:text-left">
                         <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">Dịp Phạm Việt Đức</h1>
-                        <p class="text-xl md:text-2xl text-blue-300 mt-2"> Thực tập Kỹ sư Xây dựng </p>
+                        <p class="text-xl md:text-2xl text-blue-300 mt-2">Thực tập Kỹ sư Xây dựng</p>
                         <p class="mt-6 text-gray-300 max-w-2xl mx-auto md:mx-0">
                             Là một sinh viên ngành Kỹ thuật xây dựng, tôi hiện chưa có nhiều kinh nghiệm thực tế, phần lớn kiến thức, kỹ năng
                             có được thông qua các hoạt động học thuật và các nghiên cứu với thầy cô trong quá trình học. Tôi mong muốn được
@@ -131,7 +140,7 @@
                             như tích lũy kinh nghiệm thực tiễn phục vụ cho sự phát triển nghề nghiệp lâu dài.
                         </p>
                         <div class="mt-8 flex justify-center md:justify-start space-x-4">
-                             <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Liên hệ </a>
+                             <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Liên hệ</a>
                              <a href="#projects" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Xem dự án</a>
                         </div>
                     </div>
@@ -145,10 +154,20 @@
                 <!-- Dự án 1 -->
                 <div
                     class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
-                    <div class="md:w-1/2">
-                        <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-205010.png"
-                            alt="Hình ảnh dự án Thiết kế tối ưu kết cấu"
-                            class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
+                    <div class="md:w-1/2 w-full relative overflow-hidden rounded-lg shadow-lg" data-slider="project1">
+                        <div class="slider-images">
+                            <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-205010.png"
+                                alt="Hình ảnh dự án Thiết kế tối ưu kết cấu 1"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                             <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-11-0304.png"
+                                alt="Hình ảnh dự án Thiết kế tối ưu kết cấu 2"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                            <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-11-0506.png"
+                                alt="Hình ảnh dự án Thiết kế tối ưu kết cấu 3"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                        </div>
+                        <button class="slider-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10094;</button>
+                        <button class="slider-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10095;</button>
                     </div>
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold text-gray-900">Thiết kế tối ưu kết cấu khung Bê tông Cốt thép</h3>
@@ -170,10 +189,17 @@
                 <!-- Dự án 2 -->
                 <div
                     class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
-                    <div class="md:w-1/2">
-                        <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-213127.png"
-                            alt="Hình ảnh dự án ảnh hưởng hố đào sâu"
-                            class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
+                    <div class="md:w-1/2 w-full relative overflow-hidden rounded-lg shadow-lg" data-slider="project2">
+                        <div class="slider-images">
+                            <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-213127.png"
+                                alt="Hình ảnh dự án ảnh hưởng hố đào sâu 1"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                            <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-11-0304.png"
+                                alt="Hình ảnh dự án ảnh hưởng hố đào sâu 2"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                        </div>
+                         <button class="slider-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10094;</button>
+                        <button class="slider-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10095;</button>
                     </div>
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold text-gray-900">Ảnh hưởng của thi công hố đào sâu đến cọc lân cận</h3>
@@ -195,9 +221,16 @@
                 <!-- Dự án 3 -->
                 <div
                     class="flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
-                    <div class="md:w-1/2">
-                        <img src="https://placehold.co/600x400/0d1a2e/FFFFFF?text=Bê+tông+CO2" alt="Hình ảnh dự án bê tông CO2"
-                            class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
+                    <div class="md:w-1/2 w-full relative overflow-hidden rounded-lg shadow-lg" data-slider="project3">
+                         <div class="slider-images">
+                            <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-11-0304.png" alt="Hình ảnh dự án bê tông CO2 1"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                             <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-11-0506.png"
+                                alt="Hình ảnh dự án bê tông CO2 2"
+                                class="w-full h-auto object-cover cursor-pointer zoomable">
+                        </div>
+                        <button class="slider-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10094;</button>
+                        <button class="slider-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10095;</button>
                     </div>
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold text-gray-900">Sử dụng CO2 trong quá trình trộn bê tông</h3>
@@ -333,6 +366,37 @@
                 }
             });
 
+            // Slider Logic
+            const sliders = document.querySelectorAll('[data-slider]');
+            sliders.forEach(slider => {
+                const imageContainer = slider.querySelector('.slider-images');
+                const images = imageContainer.querySelectorAll('img');
+                const prevButton = slider.querySelector('.slider-prev');
+                const nextButton = slider.querySelector('.slider-next');
+                let currentIndex = 0;
+                const totalImages = images.length;
+
+                if (totalImages <= 1) {
+                    if (prevButton) prevButton.style.display = 'none';
+                    if (nextButton) nextButton.style.display = 'none';
+                    return;
+                }
+
+                function updateSliderPosition() {
+                    imageContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    updateSliderPosition();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                    updateSliderPosition();
+                });
+            });
+
             // Scroll reveal animation
             const scrollElements = document.querySelectorAll('.scroll-reveal');
             const observer = new IntersectionObserver((entries) => {
@@ -353,5 +417,4 @@
 </body>
 
 </html>
-
 
