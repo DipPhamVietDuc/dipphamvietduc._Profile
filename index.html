@@ -14,36 +14,32 @@
         body {
             font-family: 'Be Vietnam Pro', sans-serif;
             background-color: #0d1a2e;
-            /* Một màu xanh đen đậm hơn */
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Họa tiết nền mờ ảo */
-        body::before {
+        body::before, body::after {
             content: '';
             position: fixed;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        body::before {
             top: 20%;
             left: -10%;
             width: 500px;
             height: 500px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.5;
         }
 
         body::after {
-            content: '';
-            position: fixed;
             bottom: 10%;
             right: -15%;
             width: 600px;
             height: 600px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.5;
         }
 
         .content-wrapper {
@@ -51,7 +47,6 @@
             z-index: 1;
         }
 
-        /* Hiệu ứng scroll-in */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -63,7 +58,6 @@
             transform: translateY(0);
         }
 
-        /* CSS cho modal xem ảnh */
         .image-modal {
             transition: opacity 0.3s ease;
         }
@@ -76,26 +70,15 @@
 
         nav a:hover {
             color: #60a5fa;
-            /* Tailwind's blue-400 */
-        }
-        /* CSS cho slider ảnh */
-        .slider-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slider-images img {
-            flex-shrink: 0;
-            width: 100%;
         }
     </style>
 </head>
 
 <body class="text-gray-200">
 
-    <!-- Header and Navigation -->
     <header class="bg-white/5 backdrop-blur-lg sticky top-0 z-40">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">Trang chủ</a>
+            <a href="#" class="text-2xl font-bold text-white">Dịp Phạm Việt Đức</a>
             <div class="space-x-8 hidden md:flex">
                 <a href="#about" class="transition-colors duration-300">Giới thiệu</a>
                 <a href="#projects" class="transition-colors duration-300">Dự án</a>
@@ -103,14 +86,11 @@
                 <a href="#contact" class="transition-colors duration-300">Liên hệ</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="#about" class="block transition-colors duration-300">Giới thiệu</a>
             <a href="#projects" class="block transition-colors duration-300">Dự án</a>
@@ -122,22 +102,16 @@
     <div class="content-wrapper">
         <main class="container mx-auto px-6 py-12 md:py-20">
 
-            <!-- Section 1: Giới thiệu -->
             <section id="about" class="min-h-screen flex items-center scroll-reveal">
-                <div
-                    class="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-white/10 p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-white/20">
+                <div class="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-white/10 p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-white/20">
                     <div class="md:col-span-4 flex justify-center">
-                        <img src="https://sv2.anhsieuviet.com/2025/09/10/canhan-fotor-20250910161947.jpg" alt="Ảnh đại diện Dịp Phạm Việt Đức"
-                            class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-blue-400 shadow-lg">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/canhan-fotor-20250910161947.jpg" alt="Ảnh đại diện Dịp Phạm Việt Đức" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-blue-400 shadow-lg">
                     </div>
                     <div class="md:col-span-8 text-center md:text-left">
-                        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight"> Dịp Phạm Việt Đức </h1>
+                        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">Dịp Phạm Việt Đức</h1>
                         <p class="text-xl md:text-2xl text-blue-300 mt-2">Thực tập Kỹ sư Xây dựng</p>
                         <p class="mt-6 text-gray-300 max-w-2xl mx-auto md:mx-0">
-                            Là một sinh viên ngành Kỹ thuật xây dựng, phần lớn kiến thức, kỹ năng và kinh nghiệm 
-                            có được thông qua các hoạt động học thuật và các nghiên cứu với thầy cô trong quá trình học. Tôi mong muốn được
-                            làm việc trong một môi trường chuyên nghiệp, có chuyên môn cao để rèn luyện, nâng cao trình độ chuyên môn cũng
-                            như tích lũy kinh nghiệm thực tiễn phục vụ cho sự phát triển nghề nghiệp lâu dài.
+                            Là một sinh viên ngành Kỹ thuật xây dựng, tôi hiện chưa có nhiều kinh nghiệm thực tế, phần lớn kiến thức, kỹ năng có được thông qua các hoạt động học thuật và các nghiên cứu với thầy cô trong quá trình học. Tôi mong muốn được làm việc trong một môi trường chuyên nghiệp, có chuyên môn cao để rèn luyện, nâng cao trình độ chuyên môn cũng như tích lũy kinh nghiệm thực tiễn phục vụ cho sự phát triển nghề nghiệp lâu dài.
                         </p>
                         <div class="mt-8 flex justify-center md:justify-start space-x-4">
                              <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Liên hệ</a>
@@ -147,151 +121,105 @@
                 </div>
             </section>
 
-            <!-- Section 2: Dự án nổi bật -->
             <section id="projects" class="py-20 md:py-32">
                 <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">Dự án Nổi bật</h2>
 
                 <!-- Dự án 1 -->
-                <div
-                    class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
-                    <div class="md:w-1/2 w-full relative overflow-hidden rounded-lg shadow-lg" data-slider="project1">
-                        <div class="slider-images">
-                            <img src="https://sv2.anhsieuviet.com/2025/09/11/Screenshot-2025-09-11-002737.png"
-                                alt="Hình ảnh dự án Thiết kế tối ưu kết cấu 1"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                             <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-205010.png"
-                                alt="Hình ảnh dự án Thiết kế tối ưu kết cấu 2"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                        </div>
-                        <button class="slider-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10094;</button>
-                        <button class="slider-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10095;</button>
+                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
+                    <div class="md:w-1/2">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-205010.png" alt="Hình ảnh dự án Thiết kế tối ưu kết cấu" class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
                     </div>
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold text-gray-900">Thiết kế tối ưu kết cấu khung Bê tông Cốt thép</h3>
                         <p class="text-blue-600 font-semibold my-2">Trưởng nhóm | Đề tài NCKH Sinh viên</p>
-                        <p class="text-gray-600">
-                            Nghiên cứu và áp dụng các thuật toán tối ưu hóa (Matlab) để tìm ra giải pháp thiết kế kết cấu khung BTCT hiệu quả nhất về mặt chi phí vật liệu mà vẫn đảm bảo an toàn chịu lực theo tiêu chuẩn (TCVN 5574:2018).
+                        <p class="text-gray-600 mb-4">
+                            Nghiên cứu và áp dụng các thuật toán tối ưu hóa (Matlab) để tìm ra giải pháp thiết kế kết cấu khung BTCT hiệu quả nhất về mặt chi phí vật liệu mà vẫn đảm bảo an toàn chịu lực theo tiêu chuẩn.
                         </p>
-                        <div class="mt-4 flex items-center gap-4">
-                            <span
-                                class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Matlab</span>
-                            <span
-                                class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Tối ưu hóa</span>
-                             <span
-                                class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Kết cấu</span>
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Matlab</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Tối ưu hóa</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Kết cấu</span>
                         </div>
+                        <a href="https://drive.google.com/file/d/1mV4c-GyJRYmd8MB_-eDIObwOOaIgCVsd/view?usp=drive_link" target="_blank" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105">Xem bài viết</a>
                     </div>
                 </div>
 
                 <!-- Dự án 2 -->
-                <div
-                    class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
-                    <div class="md:w-1/2 w-full relative overflow-hidden rounded-lg shadow-lg" data-slider="project2">
-                        <div class="slider-images">
-                            <img src="https://sv2.anhsieuviet.com/2025/09/12/Screenshot-2025-09-12-094557.png"
-                                alt="Hình ảnh dự án ảnh hưởng hố đào sâu 1"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                            <img src="https://sv2.anhsieuviet.com/2025/09/12/Screenshot-2025-09-12-094910.png"
-                                alt="Hình ảnh dự án ảnh hưởng hố đào sâu 2"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                             <img src="https://sv2.anhsieuviet.com/2025/09/12/Screenshot-2025-09-12-094917.png"
-                                alt="Hình ảnh dự án ảnh hưởng hố đào sâu 2"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                        </div>
-                         <button class="slider-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10094;</button>
-                        <button class="slider-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10095;</button>
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
+                    <div class="md:w-1/2">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-10-213127.png" alt="Hình ảnh dự án ảnh hưởng hố đào sâu" class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
                     </div>
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold text-gray-900">Ảnh hưởng của thi công hố đào sâu đến cọc lân cận</h3>
                         <p class="text-blue-600 font-semibold my-2">Trưởng nhóm | Đề tài NCKH Sinh viên</p>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 mb-4">
                             Sử dụng phần mềm địa kỹ thuật Plaxis để mô phỏng và phân tích sự ảnh hưởng của chuyển vị đất nền trong quá trình thi công hố đào sâu đến sức chịu tải của cọc đơn tại các công trình liền kề.
                         </p>
-                         <div class="mt-4">
-                            <span
-                                class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Địa kỹ thuật</span>
-                            <span
-                                class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Plaxis</span>
-                            <span
-                                class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Mô phỏng</span>
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Địa kỹ thuật</span>
+                            <span class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Plaxis</span>
+                            <span class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Mô phỏng</span>
                         </div>
+                        <a href="https://drive.google.com/file/d/1sFY9s0ZybTP38E2Crnc5lPMRoDHlMkus/view?usp=drive_link" target="_blank" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105">Xem bài viết</a>
                     </div>
                 </div>
                 
                 <!-- Dự án 3 -->
-                <div
-                    class="flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
-                    <div class="md:w-1/2 w-full relative overflow-hidden rounded-lg shadow-lg" data-slider="project3">
-                         <div class="slider-images">
-                            <img src="https://sv2.anhsieuviet.com/2025/09/12/Screenshot-2025-09-12-094028.png" alt="Hình ảnh dự án bê tông CO2 1"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                             <img src="https://sv2.anhsieuviet.com/2025/09/12/Screenshot-2025-09-12-094159.png"
-                                alt="Hình ảnh dự án bê tông CO2 2"
-                                class="w-full h-auto object-cover cursor-pointer zoomable">
-                        </div>
-                        <button class="slider-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10094;</button>
-                        <button class="slider-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none z-10">&#10095;</button>
+                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
+                    <div class="md:w-1/2">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/Screenshot-2025-09-11-0304.png" alt="Hình ảnh dự án bê tông CO2" class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
                     </div>
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold text-gray-900">Sử dụng CO2 trong quá trình trộn bê tông</h3>
                         <p class="text-blue-600 font-semibold my-2">Thành viên | Đề tài NCKH Sinh viên (Giải khuyến khích)</p>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 mb-4">
                            Tham gia nghiên cứu ảnh hưởng của việc sục khí CO2 trong quá trình trộn đến các tính chất cơ lý như cường độ chịu nén, độ hút nước của bê tông, nhằm tìm kiếm giải pháp vật liệu xây dựng xanh.
                         </p>
-                        <div class="mt-4">
-                           <span
-                                class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Vật liệu xanh</span>
-                            <span
-                                class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Thí nghiệm</span>
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                           <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Vật liệu xanh</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-2.5 py-0.5 rounded-full">Thí nghiệm</span>
                         </div>
+                        <a href="https://drive.google.com/file/d/1MhCcE-Mzut1sPxO4jAf6hp0WwmfXsvXJ/view?usp=drive_link" target="_blank" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105">Xem bài viết</a>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 3: Thành tích -->
             <section id="achievements" class="py-20 md:py-32">
                 <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">Thành tích & Chứng nhận</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Thành tích 1 -->
                     <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal">
                         <img src="https://sv2.anhsieuviet.com/2025/09/10/g1.jpg" alt="Giải nhất Kỹ sư tài năng" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
                         <h3 class="text-xl font-semibold text-white">Giải nhất Kỹ sư tài năng UTC2</h3>
                         <p class="text-gray-300 mt-2">Đạt thành tích cao nhất tại cuộc thi học thuật do trường tổ chức năm 2024.</p>
                     </div>
 
-                    <!-- Thành tích 2 -->
                      <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 150ms;">
                         <img src="https://sv2.anhsieuviet.com/2025/09/10/z6911958018361_0dc5ed2a54c374991a873eaa3401e919.jpg" alt="Giải khuyến khích NCKH" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
                         <h3 class="text-xl font-semibold text-white">Giải khuyến khích NCKH</h3>
                         <p class="text-gray-300 mt-2">Đạt giải Nghiên cứu Khoa học Sinh viên cấp trường năm học 2023-2024.</p>
                     </div>
 
-                    <!-- Thành tích 3 -->
                     <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 300ms;">
                         <img src="https://sv2.anhsieuviet.com/2025/09/10/z6911958018358_b402fadba551d895d19032eab99dad81.jpg" alt="Olympic Cơ học Toàn quốc" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
                         <h3 class="text-xl font-semibold text-white">Olympic Cơ học Toàn quốc</h3>
                         <p class="text-gray-300 mt-2">Tham dự Olympic Cơ học Toàn quốc Lần thứ 34 - Môn Thủy lực.</p>
                     </div>
                     
-                     <!-- Thành tích 4 -->
                     <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 450ms;">
                         <img src="https://sv2.anhsieuviet.com/2025/09/10/ket_cau_chiu_luc_n3.signed.jpg" alt="Thi học thuật, sáng tạo" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
                         <h3 class="text-xl font-semibold text-white">Thi học thuật, sáng tạo</h3>
                         <p class="text-gray-300 mt-2">Tham gia cuộc thi học thuật, sáng tạo sinh viên Phân hiệu năm học 2023-2024.</p>
                     </div>
 
-                     <!-- Thành tích 5 -->
                      <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 600ms;">
                         <img src="https://sv2.anhsieuviet.com/2025/09/10/giay_chung_nhan_v2__kem_qdpages6.signed.jpg" alt="Chứng nhận NCKH (cá nhân)" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
                         <h3 class="text-xl font-semibold text-white">Chứng nhận NCKH</h3>
                         <p class="text-gray-300 mt-2">Chứng nhận tham gia Nghiên cứu Khoa học sinh viên năm học 2023-2024.</p>
                     </div>
-
                 </div>
             </section>
 
-            <!-- Section 4: Liên hệ -->
             <section id="contact" class="py-20 md:py-32">
                  <div class="text-center max-w-2xl mx-auto scroll-reveal">
                     <h2 class="text-4xl font-bold text-white mb-4">Kết nối với tôi</h2>
@@ -308,7 +236,6 @@
         </main>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-white/5 py-6">
         <div class="container mx-auto px-6 text-center text-gray-400">
             <p>&copy; 2025 Dịp Phạm Việt Đức. All rights reserved.</p>
@@ -316,32 +243,26 @@
     </footer>
 
 
-    <!-- Image Modal -->
-    <div id="image-modal"
-        class="image-modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+    <div id="image-modal" class="image-modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <img id="modal-image" src="" alt="Hình ảnh xem lớn" class="modal-image rounded-lg shadow-2xl">
-        <button id="close-modal-button"
-            class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
+        <button id="close-modal-button" class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
     </div>
 
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // Close mobile menu when a link is clicked
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                 });
             });
 
-            // Image Modal Logic
             const imageModal = document.getElementById('image-modal');
             const modalImage = document.getElementById('modal-image');
             const closeModalButton = document.getElementById('close-modal-button');
@@ -360,44 +281,11 @@
 
             closeModalButton.addEventListener('click', closeModal);
             imageModal.addEventListener('click', (e) => {
-                // Chỉ đóng khi click vào nền, không đóng khi click vào ảnh
                 if (e.target === imageModal) {
                     closeModal();
                 }
             });
 
-            // Slider Logic
-            const sliders = document.querySelectorAll('[data-slider]');
-            sliders.forEach(slider => {
-                const imageContainer = slider.querySelector('.slider-images');
-                const images = imageContainer.querySelectorAll('img');
-                const prevButton = slider.querySelector('.slider-prev');
-                const nextButton = slider.querySelector('.slider-next');
-                let currentIndex = 0;
-                const totalImages = images.length;
-
-                if (totalImages <= 1) {
-                    if (prevButton) prevButton.style.display = 'none';
-                    if (nextButton) nextButton.style.display = 'none';
-                    return;
-                }
-
-                function updateSliderPosition() {
-                    imageContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-                }
-
-                nextButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex + 1) % totalImages;
-                    updateSliderPosition();
-                });
-
-                prevButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-                    updateSliderPosition();
-                });
-            });
-
-            // Scroll reveal animation
             const scrollElements = document.querySelectorAll('.scroll-reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
